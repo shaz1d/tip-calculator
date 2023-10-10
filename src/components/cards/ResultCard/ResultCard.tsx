@@ -5,7 +5,7 @@ type ResultCardProps = {
 };
 const ResultCard = ({ tip, bill, reset }: ResultCardProps) => {
   return (
-    <div className="w-full min-h-full flex flex-col justify-between gap-14 bg-pest-600 text-white rounded-[15px] p-10">
+    <div className="w-full min-h-full flex flex-col justify-between gap-14 bg-pest-600 text-white rounded-[15px] p-7 sm:p-10">
       <div className="flex flex-col gap-14">
         <div className="flex items-center justify-between gap-2">
           <div>
