@@ -23,7 +23,7 @@ const NumberInput = ({ name, label, state, setState }: NumberInputProps) => {
   };
 
   return (
-    <div className="flex flex-col gap-1 py-4">
+    <div className="flex flex-col gap-2 py-4">
       {label && (
         <label className="text-pest-500" htmlFor={name}>
           {" "}
