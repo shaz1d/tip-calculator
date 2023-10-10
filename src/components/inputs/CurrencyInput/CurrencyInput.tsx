@@ -46,7 +46,7 @@ const CurrencyInput = ({
           id={name}
           onChange={handleChange}
           value={state === "0" ? "" : state}
-          placeholder="0"
+          placeholder={label ? "0" : "Custom"}
         />
       </div>
     </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import NumberInput from "./components/inputs/NumberInput";
 import CurrencyInput from "./components/inputs/CurrencyInput";
 import TipPercentInput from "./components/inputs/TipPercentInput";
+import ResultCard from "./components/cards/ResultCard";
 
 function App() {
   const [totalBill, setTotalBill] = useState("");
@@ -21,10 +22,15 @@ function App() {
     const perBill = parseFloat((bill / people + perTip).toFixed(2));
     setPerPersonTip(perTip);
     setPerPersonBill(perBill);
+  };
 
-    console.log(
-      `Total bill: ${bill}  People: ${people}  Tip:${tip} Per bill: ${perBill} perTip: ${perTip}`
-    );
+  const reset = () => {
+    setTotalBill("");
+    setTipCustomPercent("");
+    setTotalPeople(0);
+    setTipPercent(0);
+    setPerPersonTip(0);
+    setPerPersonBill(0);
   };
   useEffect(() => {
     calculate();
@@ -42,15 +48,15 @@ function App() {
         tter
       </h1>
 
-      <div className="w-full mx-auto max-w-4xl p-5 bg-white rounded-3xl shadow-2xl grid grid-cols-2">
-        <div className="p-4">
+      <div className="w-full mx-auto max-w-4xl p-8 bg-white rounded-3xl shadow-2xl grid grid-cols-2 gap-8">
+        <div className="px-4 py-0">
           <CurrencyInput
             label="Bill"
             name="bill"
             state={totalBill}
             setState={setTotalBill}
           />
-          <div className="flex flex-col gap-4 py-1">
+          <div className="flex flex-col gap-[14px] py-1">
             <label className="text-pest-500">Select Tip %</label>
             <div className="grid grid-cols-3 gap-4">
               <TipPercentInput
@@ -99,7 +105,7 @@ function App() {
             setState={setTotalPeople}
           />
         </div>
-        <div></div>
+        <ResultCard tip={perPersonTip} bill={perPersonBill} reset={reset} />
       </div>
     </div>
   );
